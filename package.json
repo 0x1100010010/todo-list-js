@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "watch": "webpack --progress --watch",
+    "watch": "webpack --progress --watch --mode development",
     "start": "webpack serve --mode development --open"
   },
   "devDependencies": {
