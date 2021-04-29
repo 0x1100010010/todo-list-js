@@ -1,0 +1,24 @@
+{
+  "name": "todo-list-js",
+  "version": "0.0.1",
+  "description": "JS dynamically rendered todo list ",
+  "main": "index.js",
+  "repository": "git@github.com:bashforger/todo-list-js.git",
+  "author": "bashforger <bash.forger@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "watch": "webpack --progress --watch",
+    "start": "webpack serve --mode development --open"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "webpack": "^5.36.1",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
