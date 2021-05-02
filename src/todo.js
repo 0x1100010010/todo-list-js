@@ -10,7 +10,6 @@ export const todo = () => {
   codefactory('span', { class: "" }, 'Add Task', 'todo-add-button');
   codefactory('i', { class: "fas fa-plus-square ml-auto" }, '', 'todo-add-button');
   codefactory('h2', { class: 'text-lg text-gray-900 font-medium title-font mb-2' }, 'Shooting Stars', 'todo-flex-container');
-  codefactory('h2', { class: 'leading-relaxed text-base' }, 'Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.', 'todo-flex-container');
 }
 
 // export default project;

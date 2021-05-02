@@ -1,3 +1,4 @@
+
 export const codefactory = (_type, _attr, _content, _parentId) => {
   const node = document.createElement(_type);
   node.innerText = _content;
