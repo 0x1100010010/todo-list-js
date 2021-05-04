@@ -1,4 +1,6 @@
 import { codefactory } from './codefactory';
+import { form } from './form'
+import { db } from './db'
 
 export const project = () => {
   codefactory('div', { class: 'xl:w-1/3 md:w-1/2 p-4', id: 'project-flex-container-size' }, '', 'body-flex-container');
@@ -8,17 +10,10 @@ export const project = () => {
   codefactory('i', { class: "fas fa-project-diagram mr-3" }, '', 'porject-add-button');
   codefactory('span', { class: "" }, 'Add Project', 'porject-add-button');
   codefactory('i', { class: "fas fa-plus-square ml-auto" }, '', 'porject-add-button');
-  const projectForm = codefactory('div', { class: 'border border-gray-200 my-3 p-6 rounded-lg flex flex-col hidden', id: 'project-form' }, 'Shooting Stars', 'project-flex-container');
+  
+  const projectForm = codefactory('div', { class: 'border border-gray-200 my-3 p-6 rounded-lg flex flex-col hidden', id: 'project-form' }, '', 'project-flex-container');
+  form().project();
+  localStorage.setItem('project', JSON.stringify(db().project_data(1,2,3)))
+  
+  console.log('get: ', localStorage.getItem('project'))
 }
-
-const project_data = (name, description, startdate, duedate, priority) => {
-  this.name = name,
-  this.description = description,
-  this.startdate = startdate,
-  this.duedate = duedate,
-  this.priority = priority
-}
-
-
-
-// export default project;
