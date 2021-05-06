@@ -2,16 +2,21 @@ import { codefactory } from './codefactory';
 
 export const form = () => {
   const project = () => {
-    // codefactory('label', { class: 'block text-gray-700 text-sm font-bold mb-2' }, '', 'project-form');
-    codefactory('input', { class: 'shadow appearance-none border rounded w-full px-3 py-2 mb-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', id: "project-name", type: "text", placeholder: "Name" }, '', 'project-form');
-    codefactory('input', { class: 'shadow appearance-none border rounded w-full px-3 py-2 mb-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', id: "project-description", type: "text", placeholder: "Description" }, '', 'project-form');
-    codefactory('input', { class: 'shadow appearance-none border rounded w-full px-3 py-2 mb-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', id: "project-priority", type: "number", placeholder: "Priority" }, '', 'project-form');
-    codefactory('input', { class: 'shadow appearance-none border rounded w-full py-2 px-3 mb-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', id: "project-duedate", type: "text", placeholder: "Duedate" }, '', 'project-form');
-    codefactory('button', { class: 'flex items-center justify-center mt-auto text-white bg-indigo-500 border-0 py-2 px-4 w-full focus:outline-none hover:bg-indigo-600 rounded', id: 'porject-submit' }, '', 'project-form').addEventListener('click', () => { console.log('submit') });
+    codefactory('input', { class: 'shadow appearance-none border rounded w-full px-3 py-2 mb-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', id: "project-name", name: "name", type: "text", placeholder: "Name" }, '', 'project-form');
+    codefactory('input', { class: 'shadow appearance-none border rounded w-full px-3 py-2 mb-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', id: "project-description", name: "description", type: "text", placeholder: "Description" }, '', 'project-form');
+    codefactory('input', { class: 'shadow appearance-none border rounded w-full px-3 py-2 mb-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', id: "project-priority", name: "priority", type: "number", placeholder: "Priority" }, '', 'project-form');
+    codefactory('input', { class: 'shadow appearance-none border rounded w-full py-2 px-3 mb-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', id: "project-duedate", name: "duedate", type: "text", placeholder: "Duedate" }, '', 'project-form');
+    codefactory('button', { class: 'flex items-center justify-center mt-auto text-white bg-indigo-500 border-0 py-2 px-4 w-full focus:outline-none hover:bg-indigo-600 rounded', id: 'porject-submit', name: 'porject-submit', type: 'submit', value: 'Send' }, '', 'project-form')
     codefactory('span', { class: "" }, 'Submit', 'porject-submit');
   };
 
   const todo = () => {
+    codefactory('input', { class: 'shadow appearance-none border rounded w-full px-3 py-2 mb-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', id: "project-name", name: "name", type: "text", placeholder: "Name" }, '', 'project-form');
+    codefactory('input', { class: 'shadow appearance-none border rounded w-full px-3 py-2 mb-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', id: "project-description", name: "description", type: "text", placeholder: "Description" }, '', 'project-form');
+    codefactory('input', { class: 'shadow appearance-none border rounded w-full px-3 py-2 mb-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', id: "project-priority", name: "priority", type: "number", placeholder: "Priority" }, '', 'project-form');
+    codefactory('input', { class: 'shadow appearance-none border rounded w-full py-2 px-3 mb-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', id: "project-duedate", name: "duedate", type: "text", placeholder: "Duedate" }, '', 'project-form');
+    codefactory('button', { class: 'flex items-center justify-center mt-auto text-white bg-indigo-500 border-0 py-2 px-4 w-full focus:outline-none hover:bg-indigo-600 rounded', id: 'porject-submit', name: 'porject-submit', type: 'submit', value: 'Send' }, '', 'project-form')
+    codefactory('span', { class: "" }, 'Submit', 'porject-submit');
   };
 
   return {

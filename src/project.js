@@ -1,6 +1,9 @@
 import { codefactory } from './codefactory';
 import { form } from './form'
+import { helper } from './helpers'
 import { db } from './db'
+
+
 
 export const project = () => {
   codefactory('div', { class: 'xl:w-1/3 md:w-1/2 p-4', id: 'project-flex-container-size' }, '', 'body-flex-container');
@@ -11,9 +14,9 @@ export const project = () => {
   codefactory('span', { class: "" }, 'Add Project', 'porject-add-button');
   codefactory('i', { class: "fas fa-plus-square ml-auto" }, '', 'porject-add-button');
   
-  const projectForm = codefactory('div', { class: 'border border-gray-200 my-3 p-6 rounded-lg flex flex-col hidden', id: 'project-form' }, '', 'project-flex-container');
+  const projectForm = codefactory('form', { class: 'border border-gray-200 my-3 p-6 rounded-lg flex flex-col hidden', id: 'project-form', name: 'project-form' }, '', 'project-flex-container');
   form().project();
-  localStorage.setItem('project', JSON.stringify(db().project_data(1,2,3)))
-  
-  console.log('get: ', localStorage.getItem('project'))
+  projectForm.addEventListener('submit', db().parseProject)
+
+  helper().renderProjects();
 }
