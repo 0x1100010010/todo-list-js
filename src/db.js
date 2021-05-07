@@ -2,13 +2,22 @@ import { helper } from './helpers'
 
 export const db = () => {
 
+  const project_data = (name, description, priority, duedate, todos = []) => ({ 
+    name, description, priority, duedate, todos
+  });
+
+  const todo_data = (name, description, startdate, duedate) => ({ 
+    name, description, startdate, duedate
+  });
+
   const load = () => {
+    let _default = project_data('Default', 'Default Project', 5, 'duedate')
     const storage = localStorage.getItem('projects');
 
     try {
-      return storage ? JSON.parse(storage) : [];
+      return storage ? JSON.parse(storage) : [].concat(_default);
     } catch (ex) {
-      return [];
+      return [].concat(_default);
     }
   };
 
@@ -27,14 +36,6 @@ export const db = () => {
     set( 'projects' ,(projects.concat(obj)))
     return get('projects')
   };
-
-  const project_data = (name, description, priority, duedate, todos = []) => ({ 
-    name, description, priority, duedate, todos
-  });
-
-  const todo_data = (name, description, startdate, duedate) => ({ 
-    name, description, startdate, duedate
-  });
 
   const addToProject = (_todo) => {
     _project.todos.push(_todo)
