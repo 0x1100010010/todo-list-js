@@ -20,6 +20,7 @@ export const status = () => {
     codefactory('span', { class: 'text-lg text-gray-500 font-medium title-font mb-2' }, 'Priority: '.concat(_project.priority), 'status-flex-container');
     codefactory('span', { class: 'text-lg text-gray-500 font-medium title-font mb-2' }, 'Duedate: '.concat(_project.duedate), 'status-flex-container');
     helper().renderTodos(i);
+    window.projectIndex = i
     console.log(_project)
   }
 

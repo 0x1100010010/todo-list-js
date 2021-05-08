@@ -37,8 +37,10 @@ export const db = () => {
     return get('projects')
   };
 
-  const addToProject = (_todo) => {
-    _project.todos.push(_todo)
+  const addToProject = (_todo, i) => {
+    projects[i].todos.push(_todo)
+    db().set('projects', projects)
+    console.log('parseTodo!',projects[i].todos, localStorage)
   }
 
   const parseProject = (e) => {
@@ -68,7 +70,8 @@ export const db = () => {
       formElements.description.value
     );
     db().set('_todo', newTodo)
-    console.log('parseTodo!', localStorage)
+    // let i = (window.projectIndex) ? (window.projectIndex): 0;
+    db().addToProject(newTodo, (window.projectIndex) ? (window.projectIndex): 0)
   }
 
   return {

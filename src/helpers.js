@@ -25,8 +25,8 @@ export const helper = () => {
     Object.keys(projects).forEach( 
       (i) => {
         codefactory('th', { scope: "col", class: "p-2 text-xs font-medium text-gray-500 self-center w-full hover:bg-blue-50 cursor-pointer" }, projects[i].name, 'project-names').addEventListener('click', () => (status().projectStatus(i)));
-      }
-    )};
+      })
+  };
   
   return { renderProjects, renderTodos };
 };
