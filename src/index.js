@@ -1,8 +1,5 @@
 import header from './header';
-import body from './body'
+import body from './body';
 
 header();
 body();
-
-
- 

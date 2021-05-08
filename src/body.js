@@ -11,7 +11,6 @@ const body = () => {
   project();
   todo();
   status();
-}
-
+};
 
 export default body;

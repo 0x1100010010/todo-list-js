@@ -1,7 +1,7 @@
 import { codefactory } from './codefactory';
 
 const links = {
-  Home: 'home'
+  Home: 'home',
 };
 
 const header = () => {
