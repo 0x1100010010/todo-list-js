@@ -37,12 +37,6 @@ export const db = () => {
     return get('projects')
   };
 
-  const addToProject = (_todo, i) => {
-    projects[i].todos.push(_todo)
-    db().set('projects', projects)
-    console.log('parseTodo!',projects[i].todos, localStorage)
-  }
-
   const parseProject = (e) => {
     e.preventDefault();
     const formElements = e.target.elements;
@@ -61,6 +55,20 @@ export const db = () => {
     helper().renderProjects();
   };
 
+  const addToProject = (_todo, i) => {
+
+    let exists = Object.keys(projects[i].todos).some((k)  => { return projects[i].todos[k].name === _todo.name; });
+    console.log(exists);
+    if (exists) {
+      (alert("Name already exists, Choose a unique name!")) 
+    } else {
+      projects[i].todos.push(_todo)
+      db().set('projects', projects)
+      console.log('pushed');
+    };
+    console.log('parseTodo!',projects[i].todos, localStorage)
+  }
+
   const parseTodo = (e) => {
     e.preventDefault();
     const formElements = e.target.elements;
@@ -70,8 +78,9 @@ export const db = () => {
       formElements.description.value
     );
     db().set('_todo', newTodo)
-    // let i = (window.projectIndex) ? (window.projectIndex): 0;
-    db().addToProject(newTodo, (window.projectIndex) ? (window.projectIndex): 0)
+    let i = (window.projectIndex) ? (window.projectIndex): 0;
+    db().addToProject(newTodo, i)
+    helper().renderTodos(i)
   }
 
   return {
