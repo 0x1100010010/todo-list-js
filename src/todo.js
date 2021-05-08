@@ -15,7 +15,6 @@ export const todo = () => {
   const todoForm = codefactory('form', { class: 'border border-gray-200 my-3 p-6 rounded-lg flex flex-col hidden', id: 'todo-form' }, '', 'todo-flex-container');
   form().todo();
   todoForm.addEventListener('submit', db().parseTodo)
-  helper().renderTodos();
 }
 
 // export default project;
