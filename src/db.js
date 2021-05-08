@@ -6,8 +6,8 @@ export const db = () => {
     name, description, priority, duedate, todos
   });
 
-  const todo_data = (name, description, startdate, duedate) => ({ 
-    name, description, startdate, duedate
+  const todo_data = (name, description) => ({ 
+    name, description
   });
 
   const load = () => {
