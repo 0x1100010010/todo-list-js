@@ -1,5 +1,7 @@
 import { codefactory } from './codefactory';
 import { form } from './form'
+import { db } from './db'
+import { helper } from './helpers';
 
 export const todo = () => {
   codefactory('div', { class: 'xl:w-1/3 md:w-1/2 p-4', id: 'todo-flex-container-size' }, '', 'body-flex-container');
@@ -10,9 +12,10 @@ export const todo = () => {
   codefactory('i', { class: "fas fa-tasks mr-3" }, '', 'todo-add-button');
   codefactory('span', { class: "" }, 'Add Todo', 'todo-add-button');
   codefactory('i', { class: "fas fa-plus-square ml-auto" }, '', 'todo-add-button');
-  const todoForm = codefactory('div', { class: 'border border-gray-200 my-3 p-6 rounded-lg flex flex-col hidden', id: 'todo-form' }, '', 'todo-flex-container');
+  const todoForm = codefactory('form', { class: 'border border-gray-200 my-3 p-6 rounded-lg flex flex-col hidden', id: 'todo-form' }, '', 'todo-flex-container');
   form().todo();
-  todoForm.addEventListener('submit', () => (console.log('Todo Submitted!')))
+  todoForm.addEventListener('submit', db().parseTodo)
+  helper().renderTodos();
 }
 
 // export default project;

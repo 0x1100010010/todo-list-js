@@ -11,11 +11,11 @@ export const db = () => {
   });
 
   const load = () => {
-    let _default = project_data('Default', 'Default Project', 5, 'duedate')
+    let _default = project_data('Default', 'Default Project', 5, 'duedate', [{name: 'Default Todo', description: 'Default'}])
     const storage = localStorage.getItem('projects');
 
     try {
-      return storage ? JSON.parse(storage) : [].concat(_default);
+      return storage ? JSON.parse(storage) : db().set('projects', [].concat(_default));
     } catch (ex) {
       return [].concat(_default);
     }
@@ -59,7 +59,19 @@ export const db = () => {
     helper().renderProjects();
   };
 
+  const parseTodo = (e) => {
+    e.preventDefault();
+    const formElements = e.target.elements;
+  
+    const newTodo = db().todo_data(
+      formElements.name.value,
+      formElements.description.value
+    );
+    db().set('_todo', newTodo)
+    console.log('parseTodo!', localStorage)
+  }
+
   return {
-    projects, load, add, set, get, todo_data, project_data, addToProject, parseProject
+    projects, load, add, set, get, todo_data, project_data, addToProject, parseProject, parseTodo
   };
 };
