@@ -3,7 +3,7 @@
 
 ## JavaScript: Todo List
 
-A sample todo list implimentation in JS using webpack. You can find the original project specification at: [The Odin Project](https://www.theodinproject.com/courses/javascript/lessons/todo-list)
+A sample todo list implimentation in JS using webpack. You can find the original project specification at: [The Odin Project](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/todo-list)
 
 
 ### Built With
@@ -19,7 +19,7 @@ A sample todo list implimentation in JS using webpack. You can find the original
 
 ### Live Demo
 
-[Live Demo Link](https://bashforger.github.io/restaurant-page/dist/index.html)
+[Live Demo Link](https://bashforger.github.io/todo-list-js)
 
 ### Getting Started
 
