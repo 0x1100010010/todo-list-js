@@ -11,7 +11,7 @@ export const helper = () => {
     }
     codefactory('div', { class: 'border border-gray-200 my-3 p-5 rounded-lg flex flex-col divide-gray-200', id: 'todo-names' }, '', 'todo-flex-container');
     if (todos) {
-      Object.keys(todos).forEach((i) => codefactory('th', { scope: 'col', class: 'p-2 text-xs font-medium text-gray-500 self-center w-full hover:bg-blue-50 cursor-pointer' }, todos[i].name, 'todo-names').addEventListener('click', () => status().todoStatus(todos[i])));
+      Object.keys(todos).forEach((i) => codefactory('th', { scope: 'col', class: 'p-2 text-xs font-medium text-gray-500 self-center w-full hover:bg-blue-50 cursor-pointer' }, todos[i].name, 'todo-names').addEventListener('click', () => status().todoStatus(i)));
     }
   };
 

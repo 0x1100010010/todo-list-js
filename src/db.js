@@ -76,7 +76,23 @@ export const db = () => {
     helper().renderTodos(i);
   };
 
+  const dropProject = (e) => {
+    e.preventDefault();
+    let i = (window.projectIndex)
+    projects.splice(i,1)
+    db().set('projects', projects);
+    helper().renderProjects();
+    document.getElementById('status-flex-container-size').remove();
+  }
+  const dropTodo = (e) => {
+    e.preventDefault();
+    projects[window.projectIndex].todos.splice(window.todoIndex,1)
+    db().set('projects', projects);
+    helper().renderTodos(window.projectIndex);
+    document.getElementById('status-flex-container-size').remove();
+  }
+
   return {
-    projects, load, add, set, get, todoData, projectData, addToProject, parseProject, parseTodo,
+    projects, load, add, set, get, todoData, projectData, addToProject, parseProject, parseTodo, dropProject, dropTodo
   };
 };
