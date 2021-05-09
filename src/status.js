@@ -1,5 +1,6 @@
 import { codefactory } from './codefactory';
 import { helper } from './helpers';
+import { form } from './form';
 import { db } from './db';
 
 export const status = () => {
@@ -22,7 +23,7 @@ export const status = () => {
     helper().renderTodos(i);
     window.projectIndex = i;
     codefactory('div', { class: 'inline-flex w-full mt-2', id: 'project-controls' }, '', 'status-flex-container');
-    codefactory('button', { class: 'bg-green-400 hover:bg-green-500 text-gray-800 font-bold py-2 px-4 w-full rounded-l' }, 'Edit', 'project-controls');
+    codefactory('button', { class: 'bg-green-400 hover:bg-green-500 text-gray-800 font-bold py-2 px-4 w-full rounded-l' }, 'Edit', 'project-controls').addEventListener('click', form().editProject);;
     codefactory('button', { class: 'bg-red-400 hover:bg-red-500 text-gray-800 font-bold py-2 px-4 w-full rounded-r' }, 'Drop', 'project-controls').addEventListener('click', db().dropProject);
   };
 
@@ -38,7 +39,7 @@ export const status = () => {
     codefactory('span', { class: 'text-lg text-gray-500 font-medium title-font mb-2' }, 'Description: '.concat(todo.description), 'status-flex-container');
     window.todoIndex = i;
     codefactory('div', { class: 'inline-flex w-full mt-2', id: 'project-controls' }, '', 'status-flex-container');
-    codefactory('button', { class: 'bg-green-400 hover:bg-green-500 text-gray-800 font-bold py-2 px-4 w-full rounded-l' }, 'Edit', 'project-controls');
+    codefactory('button', { class: 'bg-green-400 hover:bg-green-500 text-gray-800 font-bold py-2 px-4 w-full rounded-l' }, 'Edit', 'project-controls').addEventListener('click', form().editTodo);
     codefactory('button', { class: 'bg-red-400 hover:bg-red-500 text-gray-800 font-bold py-2 px-4 w-full rounded-r' }, 'Drop', 'project-controls').addEventListener('click', db().dropTodo);
   };
 

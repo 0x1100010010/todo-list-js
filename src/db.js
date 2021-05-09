@@ -1,4 +1,5 @@
 import { helper } from './helpers';
+import { status } from './status';
 
 export const db = () => {
   const projectData = (name, description, priority, duedate, todos = []) => ({
@@ -83,6 +84,7 @@ export const db = () => {
     db().set('projects', projects);
     helper().renderProjects();
     document.getElementById('status-flex-container-size').remove();
+    helper().clearTodos();
   }
   const dropTodo = (e) => {
     e.preventDefault();
@@ -92,7 +94,44 @@ export const db = () => {
     document.getElementById('status-flex-container-size').remove();
   }
 
+  const editTodo = (e) => {
+    e.preventDefault();
+    const formElements = e.target.elements;
+
+    const updated = db().todoData(
+      formElements.name.value,
+      formElements.description.value
+    );
+  
+    projects[window.projectIndex].todos[window.todoIndex] = updated;
+    db().set('projects', projects);
+    console.log('todo edited')
+
+    helper().renderTodos(window.projectIndex);
+    status().todoStatus(window.todoIndex)
+  }
+
+  const editProject = (e) => {
+    e.preventDefault();
+    const formElements = e.target.elements;
+
+    const updated = db().projectData(
+      formElements.name.value,
+      formElements.description.value,
+      formElements.priority.value,
+      formElements.duedate.value,
+      projects[window.projectIndex].todos
+    );
+  
+    projects[window.projectIndex] = updated;
+    db().set('projects', projects);
+    console.log('Project edited')
+
+    helper().renderProjects();
+    status().projectStatus(window.projectIndex);
+  }
+
   return {
-    projects, load, add, set, get, todoData, projectData, addToProject, parseProject, parseTodo, dropProject, dropTodo
+    projects, load, add, set, get, todoData, projectData, addToProject, parseProject, parseTodo, dropProject, dropTodo, editProject, editTodo
   };
 };

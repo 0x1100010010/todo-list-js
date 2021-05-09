@@ -28,5 +28,9 @@ export const helper = () => {
     );
   };
 
-  return { renderProjects, renderTodos };
+  const clearTodos = () => {
+    document.getElementById('todo-names').remove();
+  }
+
+  return { renderProjects, renderTodos, clearTodos };
 };
