@@ -2,7 +2,7 @@ import { codefactory } from './codefactory';
 import { db } from './db';
 
 export const form = () => {
-  let projects = db().load();
+  const projects = db().load();
   const project = () => {
     codefactory('input', {
       class: 'shadow appearance-none border rounded w-full px-3 py-2 mb-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', id: 'project-name', name: 'name', type: 'text', placeholder: 'Name', required: '',
@@ -74,6 +74,6 @@ export const form = () => {
   };
 
   return {
-    project, todo, editProject, editTodo
+    project, todo, editProject, editTodo,
   };
 };

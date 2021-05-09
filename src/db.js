@@ -11,7 +11,13 @@ export const db = () => {
   });
 
   const load = () => {
-    const defaultData = projectData('Default', 'Default Project', 5, 'duedate', [{ name: 'Default Todo', description: 'Default' }]);
+    const defaultData = projectData(
+      'Default',
+      'Default Project',
+      5,
+      '2/2/2021',
+      [{ name: 'Default Todo', description: 'Default' }],
+    );
     const storage = localStorage.getItem('projects');
 
     try {
@@ -79,20 +85,20 @@ export const db = () => {
 
   const dropProject = (e) => {
     e.preventDefault();
-    let i = (window.projectIndex)
-    projects.splice(i,1)
+    const i = (window.projectIndex);
+    projects.splice(i, 1);
     db().set('projects', projects);
     helper().renderProjects();
     document.getElementById('status-flex-container-size').remove();
     helper().clearTodos();
-  }
+  };
   const dropTodo = (e) => {
     e.preventDefault();
-    projects[window.projectIndex].todos.splice(window.todoIndex,1)
+    projects[window.projectIndex].todos.splice(window.todoIndex, 1);
     db().set('projects', projects);
     helper().renderTodos(window.projectIndex);
     document.getElementById('status-flex-container-size').remove();
-  }
+  };
 
   const editTodo = (e) => {
     e.preventDefault();
@@ -100,16 +106,14 @@ export const db = () => {
 
     const updated = db().todoData(
       formElements.name.value,
-      formElements.description.value
+      formElements.description.value,
     );
-  
+
     projects[window.projectIndex].todos[window.todoIndex] = updated;
     db().set('projects', projects);
-    console.log('todo edited')
-
     helper().renderTodos(window.projectIndex);
-    status().todoStatus(window.todoIndex)
-  }
+    status().todoStatus(window.todoIndex);
+  };
 
   const editProject = (e) => {
     e.preventDefault();
@@ -120,18 +124,29 @@ export const db = () => {
       formElements.description.value,
       formElements.priority.value,
       formElements.duedate.value,
-      projects[window.projectIndex].todos
+      projects[window.projectIndex].todos,
     );
-  
+
     projects[window.projectIndex] = updated;
     db().set('projects', projects);
-    console.log('Project edited')
-
     helper().renderProjects();
     status().projectStatus(window.projectIndex);
-  }
+  };
 
   return {
-    projects, load, add, set, get, todoData, projectData, addToProject, parseProject, parseTodo, dropProject, dropTodo, editProject, editTodo
+    projects,
+    load,
+    add,
+    set,
+    get,
+    todoData,
+    projectData,
+    addToProject,
+    parseProject,
+    parseTodo,
+    dropProject,
+    dropTodo,
+    editProject,
+    editTodo,
   };
 };
