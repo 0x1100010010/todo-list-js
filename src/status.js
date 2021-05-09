@@ -21,6 +21,9 @@ export const status = () => {
     codefactory('span', { class: 'text-lg text-gray-500 font-medium title-font mb-2' }, 'Duedate: '.concat(project.duedate), 'status-flex-container');
     helper().renderTodos(i);
     window.projectIndex = i;
+    codefactory('div', { class: 'inline-flex w-full mt-2', id: 'project-controls' }, '', 'status-flex-container');
+    codefactory('button', { class: 'bg-green-400 hover:bg-green-500 text-gray-800 font-bold py-2 px-4 w-full rounded-l' }, 'Edit', 'project-controls');
+    codefactory('button', { class: 'bg-red-400 hover:bg-red-500 text-gray-800 font-bold py-2 px-4 w-full rounded-r' }, 'Drop', 'project-controls');
   };
 
   const todoStatus = (todo) => {
@@ -32,6 +35,9 @@ export const status = () => {
     codefactory('h1', { class: 'text-4xl text-gray-600 pb-4 mb-4 border-b border-gray-200 leading-none self-center' }, 'Status', 'status-flex-container');
     codefactory('span', { class: 'text-lg text-gray-500 font-medium title-font mb-2' }, 'Name: '.concat(todo.name), 'status-flex-container');
     codefactory('span', { class: 'text-lg text-gray-500 font-medium title-font mb-2' }, 'Description: '.concat(todo.description), 'status-flex-container');
+    codefactory('div', { class: 'inline-flex w-full mt-2', id: 'project-controls' }, '', 'status-flex-container');
+    codefactory('button', { class: 'bg-green-400 hover:bg-green-500 text-gray-800 font-bold py-2 px-4 w-full rounded-l' }, 'Edit', 'project-controls');
+    codefactory('button', { class: 'bg-red-400 hover:bg-red-500 text-gray-800 font-bold py-2 px-4 w-full rounded-r' }, 'Drop', 'project-controls');
   };
 
   return {
