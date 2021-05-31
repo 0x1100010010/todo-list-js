@@ -1,3 +1,4 @@
+// localStorage Initialization for Jest
 class LocalStorageMock {
   constructor() {
     this.store = {};
