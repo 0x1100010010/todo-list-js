@@ -10,13 +10,15 @@
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "watch": "webpack --progress --watch --mode development",
-    "start": "webpack serve --mode development "
+    "start": "webpack serve --mode development ",
+    "test": "jest"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.25.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
+    "jest": "^27.0.3",
     "webpack": "^5.36.1",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
