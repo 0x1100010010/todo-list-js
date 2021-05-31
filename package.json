@@ -11,7 +11,7 @@
     "build": "webpack --mode production",
     "watch": "webpack --progress --watch --mode development",
     "start": "webpack serve --mode development ",
-    "test": "jest"
+    "test": "jest --env=jsdom"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.3",
