@@ -11,7 +11,7 @@
     "build": "webpack --mode production",
     "watch": "webpack --progress --watch --mode development",
     "start": "webpack serve --mode development ",
-    "test": "jest --env=jsdom"
+    "test": "jest --env=jsdom --maxWorkers=4"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.3",
@@ -23,6 +23,7 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "jest": "^27.0.3",
+    "node-notifier": "^10.0.0",
     "webpack": "^5.36.1",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
